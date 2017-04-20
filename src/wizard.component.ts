@@ -10,17 +10,17 @@ import { WizardStepComponent } from './wizard-step.component';
       <ng-content></ng-content>
     </div>
     <div class="card-footer" [hidden]="isCompleted">
-        <button type="button" class="btn btn-secondary float-left" (click)="previous()" [hidden]="!hasPrevStep || !activeStep.showPrev">Previous</button>
-        <button type="button" class="btn btn-secondary float-right" (click)="next()" [disabled]="!activeStep.isValid" [hidden]="!hasNextStep || !activeStep.showNext">Next</button>
-        <button type="button" class="btn btn-secondary float-right" (click)="complete()" [disabled]="!activeStep.isValid" [hidden]="hasNextStep">Done</button>
+        <button type="button" class="card-footer__btn float-left" (click)="previous()" [hidden]="!hasPrevStep || !activeStep.showPrev">Previous</button>
+        <button type="button" class="card-footer__btn float-right" (click)="next()" [disabled]="!activeStep.isValid" [hidden]="!hasNextStep || !activeStep.showNext">Next</button>
+        <button type="button" class="card-footer__btn float-right" (click)="complete()" [disabled]="!activeStep.isValid" [hidden]="hasNextStep">Done</button>
     </div>
-    <div class="card-nav">
-      <ul class="card-nav__list">
-        <li class="card-nav__list__dots" *ngFor="let step of steps" [ngClass]="{'active': step.isActive, 'enabled': !step.isDisabled, 'disabled': step.isDisabled, 'completed': isCompleted}">
-          <a (click)="goToStep(step)">&#9679;</a>
-        </li>
-      </ul>
-    </div>
+  </div>
+  <div class="card-nav">
+    <ul class="card-nav__list">
+      <li class="card-nav__list__dots" *ngFor="let step of steps" [ngClass]="{'active': step.isActive, 'enabled': !step.isDisabled, 'disabled': step.isDisabled, 'completed': isCompleted}">
+        <a (click)="goToStep(step)">&#9679;</a>
+      </li>
+    </ul>
   </div>`
   ,
   styles: []
