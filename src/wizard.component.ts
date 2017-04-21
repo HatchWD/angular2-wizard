@@ -17,9 +17,9 @@ import { WizardStepComponent } from './wizard-step.component';
       <ng-content></ng-content>
     </div>
     <div class="card-footer" [hidden]="isCompleted">
-        <button type="button" class="card-footer__btn float-left" (click)="previous()" [hidden]="!hasPrevStep || !activeStep.showPrev">Previous</button>
-        <button type="button" class="card-footer__btn float-right" (click)="next()" [disabled]="!activeStep.isValid" [hidden]="!hasNextStep || !activeStep.showNext">Next</button>
-        <button type="button" class="card-footer__btn float-right" (click)="complete()" [disabled]="!activeStep.isValid" [hidden]="hasNextStep">Done</button>
+        <button id="js-button-prev" type="button" [ngClass]="{'card-footer__btn':true, 'float-left': true, hidden: !hasPrevStep || !activeStep.showPrev}" (click)="previous()">Previous</button>
+        <button id="js-button-next" type="button" [ngClass]="{'card-footer__btn':true, 'float-right': true, hidden: !hasNextStep || !activeStep.showNext}" (click)="next()" [disabled]="!activeStep.isValid" [hidden]="">Next</button>
+        <button id="js-button-done" type="button" class="card-footer__btn float-right" (click)="complete()" [disabled]="!activeStep.isValid" [hidden]="hasNextStep">Done</button>
     </div>
   </div>
   `
