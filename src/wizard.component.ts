@@ -7,19 +7,13 @@ import { WizardStepComponent } from './wizard-step.component';
   `<div class="card container">
 
     <div class="card-block">
-    <div class="card-nav">
-      <ul class="card-nav__list">
-        <li class="card-nav__list__dots" *ngFor="let step of steps" [ngClass]="{'active': step.isActive, 'enabled': !step.isDisabled, 'disabled': step.isDisabled, 'completed': isCompleted}">
-          <a (click)="goToStep(step)">&#9679;</a>
-        </li>
-      </ul>
-    </div>
+
       <ng-content></ng-content>
     </div>
     <div class="card-footer" [hidden]="isCompleted">
         <button id="js-button-prev" type="button" [ngClass]="{'card-footer__btn':true, 'float-left': true, hidden: !hasPrevStep || !activeStep.showPrev}" (click)="previous()">Previous</button>
         <button id="js-button-next" type="button" [ngClass]="{'card-footer__btn':true, 'float-right': true, hidden: !hasNextStep || !activeStep.showNext}" (click)="next()" [disabled]="!activeStep.isValid" [hidden]="">Next</button>
-        <button id="js-button-done" type="button" class="card-footer__btn float-right" (click)="complete()" [disabled]="!activeStep.isValid" [hidden]="hasNextStep">Done</button>
+        <button id="js-button-done" type="button" class="card-footer__btn float-right" (click)="complete()" [disabled]="!activeStep.isValid" [hidden]="hasNextStep">Compare →</button>
     </div>
   </div>
   `
