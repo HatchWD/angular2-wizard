@@ -90,11 +90,15 @@ export class WizardComponent implements OnInit, AfterContentInit {
   }
 
   previous() {
-    if (this.hasPrevStep) {
-      let prevStep: WizardStepComponent = this.steps[this.activeStepIndex - 1];
-      this.activeStep.onPrev.emit();
-      prevStep.isDisabled = false;
-      this.activeStep = prevStep;
+    if (this.hasNextStep) {
+      if (this.hasPrevStep) {
+        let prevStep: WizardStepComponent = this.steps[this.activeStepIndex - 1];
+        this.activeStep.onPrev.emit();
+        prevStep.isDisabled = false;
+        this.activeStep = prevStep;
+      }
+    }else{
+      location.reload();
     }
   }
 
